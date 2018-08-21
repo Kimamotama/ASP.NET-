@@ -1,0 +1,12 @@
+D:\Myvs\Ajax增删改查\Web\bin\Web.dll.config
+D:\Myvs\Ajax增删改查\Web\bin\Web.dll
+D:\Myvs\Ajax增删改查\Web\bin\Web.pdb
+D:\Myvs\Ajax增删改查\Web\obj\Debug\Web.dll
+D:\Myvs\Ajax增删改查\Web\obj\Debug\Web.pdb
+D:\Myvs\Ajax增删改查\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+D:\Myvs\Ajax增删改查\Web\bin\BLL.dll
+D:\Myvs\Ajax增删改查\Web\bin\Model.dll
+D:\Myvs\Ajax增删改查\Web\bin\DAL.dll
+D:\Myvs\Ajax增删改查\Web\bin\BLL.pdb
+D:\Myvs\Ajax增删改查\Web\bin\Model.pdb
+D:\Myvs\Ajax增删改查\Web\bin\DAL.pdb

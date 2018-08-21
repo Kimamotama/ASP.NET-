@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link href="themes/default/easyui.css" rel="stylesheet" />
+    <link href="themes/icon.css" rel="stylesheet" />
+    <link href="PageBarStyle.css" rel="stylesheet" />
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="jquery.easyui.min.js"></script>
+    <script src="easyui-lang-zh_CN.js"></script>
+    <script>
+        $(function () {
+            $("#showTab").css("display", "none");
+            $("#addUserDiv").css("display", "none");
+            $("#editUserDiv").css("display", "none");
+            $("#adduser-a").click(function () {
+                ShowAddUser();
+            })
+            LoadTable();
+        });
+
+        //打开添加用户信息
+        function ShowAddUser () {
+            $("#addUserDiv").css("display", "block");
+            $("#addUserDiv").dialog({
+                title: "添加用户",
+                width: 300,
+                height: 300,
+                collapsible: true,
+                maximizable: true,
+                resizable: true,
+                modal: true,
+                buttons: [{
+                    text: "ok",
+                    iconCls: "icon-ok",
+                    handler: function () {
+                        //将添加表单中的数据通过异步方式发送到服务器
+                        AddUser();
+                    }
+                }, {
+                    text: "Cancel",
+                    handler: function () {
+                        $("#addUserDiv").dialog("close");
+                    }
+                }]
+            });
+        }
+
+        //添加用户
+        function AddUser() {
+            //获取表单中用户输入的值 构建成json {"name":""} name属性是键
+            var serverData = $("#form1").serializeArray();
+            //console.log(serverData.length);
+            //$.each(serverData, function (i, field) {
+            //    console.log(field.name + ":" + field.value + " ");
+            //});
+            $.post("AddUser.ashx", serverData, function (data) {
+                if (data == "yes") {
+                    //清除
+                    $("#tab tr:gt(0)").remove();
+                    //加载
+                    LoadTable();
+                    //清除表单中的旧数据
+                    $("#addUserForm input").val("");
+                    //关闭
+                    $("#addUserDiv").dialog("close");
+                } else {
+                    $.mess.alert("提示", "失败1", "error");
+                }
+            })
+        }
+        //加载页面
+        function LoadTable(pageIndex) {
+            $.post("SeleteUser.ashx", { "pageIndex": pageIndex }, function (data) {
+                //将json字符串转化成json对象
+                var serverda = $.parseJSON(data);
+                //JSON.parse();
+                //eval("("+")")
+
+                //分页时 此处添加匿名类的user属性
+                var serverLength = serverda.user.length;
+                for (var i = 0; i < serverLength; i++) {
+                    $("<tr><th>" + serverda.user[i].Id + "</th><th>" +
+                        serverda.user[i].LoginPwd + "</th><th>" + serverda.user[i].NickName + "</th><th>" +
+                        serverda.user[i].Sex + "</th><th>" + serverda.user[i].Age + "</th><th>" +
+                        serverda.user[i].FaceId + "</th><th>" + serverda.user[i].Friend + "</th><th>" +
+                        serverda.user[i].Name + "</th><th>" + serverda.user[i].StarId + "</th><th>" +
+                        serverda.user[i].BloodId + "</th><th><a href='javascript:void(0)' class='delete' id='" +
+                        serverda.user[i].Id + "'>删除</a></th><th><a href='javascript:void(0)' class='eidt' nId='"+serverda.user[i].Id+"'>修改</a></th><th><a href='javascript:void(0)' class='detail' nId='" + serverda.user[i].Id + "'>详细</a></th></tr>")
+                    .appendTo("#tab");
+                    //自建属性 nId
+                    //javascript: void (0)  点击什么都不会发生
+                }
+                //绑定页码条
+                $("#showPageBar").html(serverda.MypageBar);
+
+                bindDetailClickEvent();//表格上数据加载完才能捕获  详细  元素
+                bindDeleteClickEvent();
+                bindEditClickEvent();
+                bindPageBarClickEvent();//分页 超链接单击事件
+            })
+        };
+
+        //分页超链接单击事件
+        function bindPageBarClickEvent() {
+            $(".myPageBar").click(function () {
+                var pageIndex = $(this).attr("href").split("=")[1];
+                //清除
+                $("#tab tr:gt(0)").remove();
+                LoadTable(pageIndex);
+                //不在执行超链接
+                return false;
+            })
+            
+        }
+
+        //修改用户
+        function bindEditClickEvent() {
+            $(".eidt").click(function () {
+                //展示数据
+                var id = $(this).attr("nId");
+                $.post("ShowDetail.ashx", { "id": id }, function (data) {
+                    var serverData = $.parseJSON(data);
+                    $("#edittxtpwd").val(serverData.LoginPwd);
+                    $("#edittxtnick").val(serverData.NickName);
+                    $("#edittxtsex").val(serverData.Sex);
+                    $("#edittxtage").val(serverData.Age);
+                    $("#edittxtface").val(serverData.FaceId);
+                    $("#edittxtfriend").val(serverData.Friend);
+                    $("#edittxtname").val(serverData.Name);
+                    $("#edittxtstar").val(serverData.StarId);
+                    $("#edittxtblood").val(serverData.BloodId);
+                    $("#editId").val(id);
+                    $("#editUserDiv").css("display", "block");
+                    $("#editUserDiv").dialog({
+                        title: "修改用户",
+                        width: 300,
+                        height: 300,
+                        collapsible: true,
+                        maximizable: true,
+                        resizable: true,
+                        modal: true,
+                        buttons: [{
+                            text: "ok",
+                            iconCls: "icon-ok",
+                            handler: function () {
+                                //将修改表单中的数据通过异步方式发送到服务器
+                                EditUser();
+                            }
+                        }, {
+                            text: "Cancel",
+                            handler: function () {
+                                $("#editUserDiv").dialog("close");
+                            }
+                        }]
+                    });
+                })
+            })
+        }
+
+        //完成信息的编辑
+        function EditUser() {
+            var serverData = $("#editForm").serializeArray();
+            $.post("EidtUser.ashx", serverData, function (data) {
+                if(data=="yes"){
+                    //清除
+                    $("#tab tr:gt(0)").remove();
+                    //加载
+                    LoadTable();
+                    //关闭
+                    $("#editUserDiv").dialog("close");
+
+                    $.messager.show({
+                        title: "提示",
+                        msg: "修改成功",
+                        showType: "show"
+                    });
+                } else {
+                    $.messager.alert("提示", "修改失败", "error");
+                }
+            })
+        }
+
+
+        //删除用户
+        function bindDeleteClickEvent() {
+            $(".delete").click(function () {
+                var id = $(this).attr("id");
+                $.messager.confirm("提示", "确定删除?", function (r) {
+                    if (r) {
+                        //发送异步请求删除
+                        $.post("DeleteUser.ashx", { "id": id }, function (data) {
+                            if(data=="yes"){
+                                //成功重新加载
+                                $("#tab tr:gt(0)").remove();
+                                LoadTable();
+                            } else {
+                                $.messager.alert("提示", "删除失败", "error");
+                            }
+                        })
+                    }
+                })
+
+            })
+        }
+
+        //展示详细信息
+        function bindDetailClickEvent() {
+            $(".detail").click(function () {
+                var id = $(this).attr("nId");
+                //alert(id);
+                //console.log(id);
+                //发送异步请求
+                $.post("ShowDetail.ashx", { "id": id }, function (data) {
+                    var serverDa = $.parseJSON(data);
+                    $("#txtId").text(id);
+                    $("#txtPwd").text(serverDa.LoginPwd);
+                    $("#txtNick").text(serverDa.NickName);
+                    $("#txtAge").text(serverDa.Age);
+                });
+                $("#showTab").css("display", "block");
+
+            })
+        }
+
+
+        //处理日期的方法
+        function ChangDateFormat(cellval) {
+            var date = new Date(parseInt(cellval.replace("/Data(", "").replace(")/", ""), 10));
+            var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+            var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+            return date.getFullYear() + "-" + month + "-" + currentDate;
+        }
+
+    </script>
+</head>
+<body>
+    <!--如果想做一个链接点击后不做任何事情，或者响应点击而完成其他事情，实际上单击此处什么也不会发生,
+    其中的javascript:void(0);形式是一个javascript的伪协议，是表示此链接不跳转到任何的地方。-->
+    javascript:;
+    <a href="javascript:void(0)" id="adduser-a">添加用户</a>
+    <table id="tab">
+        <tr id="trid"><th>编号</th><th>密码</th><th>昵称</th><th>性别</th><th>年龄</th><th>头像</th><th>好友类型</th><th>血型</th><th>姓名</th><th>星座</th><th>删除</th><th>修改</th><th>详细</th></tr>
+    </table>
+    <!--展示详细信息-->
+    <div>
+        <table id="showTab">
+            <tr>
+                <td>编号</td>
+                <td><span id="txtId"></span></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><span id="txtPwd"></span></td>
+            </tr>
+            <tr>
+                <td>昵称</td>
+                <td><span id="txtNick"></span></td>
+            </tr>
+            <tr>
+                <td>年龄</td>
+                <td><span id="txtAge"></span></td>
+            </tr>
+        </table>
+    </div>
+    <!--展示信息结束-->
+
+    <!--展示页码条开始-->
+
+    <div id="showPageBar" class="page_nav">
+
+    </div>
+
+
+    <!--展示页码条结束-->
+
+
+    <!--添加用户开始-->
+    <div id="addUserDiv">
+        <form id="form1" >
+            密码:<input type="text" name="txtpwd" /><br />
+            昵称:<input type="text" name="txtnick" /><br />
+            性别:<input type="text" name="txtsex" /><br />
+            年龄:<input type="text" name="txtage" /><br />
+            头像:<input type="text" name="txtface" /><br />
+            好友策略:<input type="text" name="txtfriend" /><br />
+            姓名:<input type="text" name="txtname" /><br />
+            星座:<input type="text" name="txtstar" /><br />
+            血型:<input type="text" name="txtblood" /><br />
+            <!--<input type="submit" value="添加" />-->
+        </form>
+    </div>
+    <!--添加用户结束-->
+
+    <!--修改用户开始-->
+    <div id="editUserDiv">
+        <form id="editForm" runat="server">
+            密码:<input type="text" name="edittxtpwd" id="edittxtpwd" /><br />
+            昵称:<input type="text" name="edittxtnick" id="edittxtnick" /><br />
+            性别:<input type="text" name="edittxtsex" id="edittxtsex" /><br />
+            年龄:<input type="text" name="edittxtage" id="edittxtage" /><br />
+            头像:<input type="text" name="edittxtface" id="edittxtface" /><br />
+            好友策略:<input type="text" name="edittxtfriend" id="edittxtfriend" /><br />
+            姓名:<input type="text" name="edittxtname" id="edittxtname" /><br />
+            星座:<input type="text" name="edittxtstar" id="edittxtstar" /><br />
+            血型:<input type="text" name="edittxtblood" id="edittxtblood" /><br />
+            <input type="hidden" value="" name="editId" id="editId" />
+        </form>
+    </div>
+    <!--修改用户结束-->
+
+</body>
+</html>

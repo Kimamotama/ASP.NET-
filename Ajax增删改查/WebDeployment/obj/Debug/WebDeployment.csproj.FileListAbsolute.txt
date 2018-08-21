@@ -1,0 +1,5 @@
+D:\Myvs\Ajax增删改查\WebDeployment\bin\WebDeployment.dll.config
+D:\Myvs\Ajax增删改查\WebDeployment\bin\WebDeployment.dll
+D:\Myvs\Ajax增删改查\WebDeployment\bin\WebDeployment.pdb
+D:\Myvs\Ajax增删改查\WebDeployment\obj\Debug\WebDeployment.dll
+D:\Myvs\Ajax增删改查\WebDeployment\obj\Debug\WebDeployment.pdb

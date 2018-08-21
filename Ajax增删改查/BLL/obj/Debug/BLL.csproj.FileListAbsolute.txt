@@ -1,0 +1,9 @@
+D:\Myvs\Ajax增删改查\BLL\bin\Debug\BLL.dll
+D:\Myvs\Ajax增删改查\BLL\bin\Debug\BLL.pdb
+D:\Myvs\Ajax增删改查\BLL\bin\Debug\DAL.dll
+D:\Myvs\Ajax增删改查\BLL\bin\Debug\Model.dll
+D:\Myvs\Ajax增删改查\BLL\bin\Debug\DAL.pdb
+D:\Myvs\Ajax增删改查\BLL\bin\Debug\Model.pdb
+D:\Myvs\Ajax增删改查\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Myvs\Ajax增删改查\BLL\obj\Debug\BLL.dll
+D:\Myvs\Ajax增删改查\BLL\obj\Debug\BLL.pdb
