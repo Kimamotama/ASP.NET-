@@ -1,0 +1,7 @@
+D:\Myvs\ashx增删改查2\DAL\bin\Debug\DAL.dll
+D:\Myvs\ashx增删改查2\DAL\bin\Debug\DAL.pdb
+D:\Myvs\ashx增删改查2\DAL\bin\Debug\Model.dll
+D:\Myvs\ashx增删改查2\DAL\bin\Debug\Model.pdb
+D:\Myvs\ashx增删改查2\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Myvs\ashx增删改查2\DAL\obj\Debug\DAL.dll
+D:\Myvs\ashx增删改查2\DAL\obj\Debug\DAL.pdb

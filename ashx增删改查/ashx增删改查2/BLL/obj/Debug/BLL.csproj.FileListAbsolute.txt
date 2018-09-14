@@ -1,0 +1,9 @@
+D:\Myvs\ashx增删改查2\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Myvs\ashx增删改查2\BLL\bin\Debug\BLL.dll
+D:\Myvs\ashx增删改查2\BLL\bin\Debug\BLL.pdb
+D:\Myvs\ashx增删改查2\BLL\bin\Debug\DAL.dll
+D:\Myvs\ashx增删改查2\BLL\bin\Debug\Model.dll
+D:\Myvs\ashx增删改查2\BLL\bin\Debug\DAL.pdb
+D:\Myvs\ashx增删改查2\BLL\bin\Debug\Model.pdb
+D:\Myvs\ashx增删改查2\BLL\obj\Debug\BLL.dll
+D:\Myvs\ashx增删改查2\BLL\obj\Debug\BLL.pdb

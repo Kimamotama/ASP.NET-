@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="css/jquery-3.3.1.min.js"></script>
+    <script >
+        $(function () {
+            $(".del").click(function () {
+                if (!confirm("确定删除")) {
+                    return false;
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <a href="AddUser.html">添加用户</a>
+    <table>
+        <tr><th>编号</th><th>密码</th><th>昵称</th><th>性别</th><th>年龄</th><th>头像</th><th>好友类型</th><th>血型</th><th>姓名</th><th>星座</th><th>删除</th><th>编辑</th></tr>
+        $tbody
+
+    </table>
+</body>
+</html>

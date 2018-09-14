@@ -1,0 +1,7 @@
+D:\Myvs\aspx增删改查\DAL\bin\Debug\DAL.dll
+D:\Myvs\aspx增删改查\DAL\bin\Debug\DAL.pdb
+D:\Myvs\aspx增删改查\DAL\bin\Debug\Model.dll
+D:\Myvs\aspx增删改查\DAL\bin\Debug\Model.pdb
+D:\Myvs\aspx增删改查\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+D:\Myvs\aspx增删改查\DAL\obj\Debug\DAL.dll
+D:\Myvs\aspx增删改查\DAL\obj\Debug\DAL.pdb

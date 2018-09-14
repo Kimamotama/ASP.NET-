@@ -1,0 +1,10 @@
+D:\Myvs\ashx增删改查\Model\bin\Debug\Model.dll
+D:\Myvs\ashx增删改查\Model\bin\Debug\Model.pdb
+D:\Myvs\ashx增删改查\Model\obj\Debug\Model.dll
+D:\Myvs\ashx增删改查\Model\obj\Debug\Model.pdb
+D:\Myvs\ashx增删改查\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\Myvs\ashx增删改查\ashx增删改查1\Model\bin\Debug\Model.dll
+D:\Myvs\ashx增删改查\ashx增删改查1\Model\bin\Debug\Model.pdb
+D:\Myvs\ashx增删改查\ashx增删改查1\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\Myvs\ashx增删改查\ashx增删改查1\Model\obj\Debug\Model.dll
+D:\Myvs\ashx增删改查\ashx增删改查1\Model\obj\Debug\Model.pdb

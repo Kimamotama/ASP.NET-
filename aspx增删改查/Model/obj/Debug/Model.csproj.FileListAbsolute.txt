@@ -1,0 +1,4 @@
+D:\Myvs\aspx增删改查\Model\bin\Debug\Model.dll
+D:\Myvs\aspx增删改查\Model\bin\Debug\Model.pdb
+D:\Myvs\aspx增删改查\Model\obj\Debug\Model.dll
+D:\Myvs\aspx增删改查\Model\obj\Debug\Model.pdb

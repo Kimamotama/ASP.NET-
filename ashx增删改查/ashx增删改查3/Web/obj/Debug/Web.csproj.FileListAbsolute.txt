@@ -1,0 +1,12 @@
+D:\Myvs\ashx增删改查3\Web\bin\Web.dll.config
+D:\Myvs\ashx增删改查3\Web\bin\Web.dll
+D:\Myvs\ashx增删改查3\Web\bin\Web.pdb
+D:\Myvs\ashx增删改查3\Web\bin\BLL.dll
+D:\Myvs\ashx增删改查3\Web\bin\Model.dll
+D:\Myvs\ashx增删改查3\Web\bin\DAL.dll
+D:\Myvs\ashx增删改查3\Web\bin\BLL.pdb
+D:\Myvs\ashx增删改查3\Web\bin\Model.pdb
+D:\Myvs\ashx增删改查3\Web\bin\DAL.pdb
+D:\Myvs\ashx增删改查3\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+D:\Myvs\ashx增删改查3\Web\obj\Debug\Web.dll
+D:\Myvs\ashx增删改查3\Web\obj\Debug\Web.pdb

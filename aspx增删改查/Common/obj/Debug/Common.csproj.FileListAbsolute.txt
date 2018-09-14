@@ -1,0 +1,5 @@
+D:\Myvs\aspx增删改查\Common\bin\Debug\Common.dll
+D:\Myvs\aspx增删改查\Common\bin\Debug\Common.pdb
+D:\Myvs\aspx增删改查\Common\obj\Debug\Common.dll
+D:\Myvs\aspx增删改查\Common\obj\Debug\Common.pdb
+D:\Myvs\aspx增删改查\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

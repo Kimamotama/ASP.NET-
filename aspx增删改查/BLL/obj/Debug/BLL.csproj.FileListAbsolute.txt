@@ -1,0 +1,9 @@
+D:\Myvs\aspx增删改查\BLL\bin\Debug\BLL.dll
+D:\Myvs\aspx增删改查\BLL\bin\Debug\BLL.pdb
+D:\Myvs\aspx增删改查\BLL\bin\Debug\DAL.dll
+D:\Myvs\aspx增删改查\BLL\bin\Debug\Model.dll
+D:\Myvs\aspx增删改查\BLL\bin\Debug\DAL.pdb
+D:\Myvs\aspx增删改查\BLL\bin\Debug\Model.pdb
+D:\Myvs\aspx增删改查\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\Myvs\aspx增删改查\BLL\obj\Debug\BLL.dll
+D:\Myvs\aspx增删改查\BLL\obj\Debug\BLL.pdb
